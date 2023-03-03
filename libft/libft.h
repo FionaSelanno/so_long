@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   libft.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fiselann <fiselann@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/24 11:00:22 by fiselann          #+#    #+#             */
+/*   Updated: 2023/01/24 11:00:53 by fiselann         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef LIBFT_H
 # define LIBFT_H
 
@@ -7,7 +19,6 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
-
 
 size_t	ft_strlen(const char *str);
 char	*ft_strchr(const char *str, int c);
@@ -35,10 +46,10 @@ void	*ft_filltab(char **tab, char const *s, char c);
 char	**ft_split(char const *s, char c);
 
 /***** FT_PRINTF ******/
-int	ft_putchar_printf(char c);
-int	ft_putstr(char *str);
-int	ft_putnbr(long int nbr, int len);
-int	ft_parse(va_list buffer, char tag);
-int	ft_printf(const char *str, ...);
+int		ft_putchar_printf(char c);
+int		ft_putstr(char *str);
+int		ft_putnbr(long int nbr, int len);
+int		ft_parse(va_list buffer, char tag);
+int		ft_printf(const char *str, ...);
 
 #endif

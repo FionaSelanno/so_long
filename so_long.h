@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   so_long.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fiselann <fiselann@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/23 16:32:04 by fiselann          #+#    #+#             */
+/*   Updated: 2023/01/24 09:57:08 by fiselann         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
@@ -10,7 +22,7 @@
 /* map data */
 typedef struct s_map {
 	int		fd;
-	char 	**grid;
+	char	**grid;
 	int		exit;
 	int		collects;	
 	int		start;
@@ -18,7 +30,7 @@ typedef struct s_map {
 	int		c_check;
 	int		width;
 	int		height;
-} t_map;
+}	t_map;
 
 /* game data*/
 typedef struct s_game {
@@ -32,7 +44,8 @@ typedef struct s_game {
 	t_map	*map;
 }	t_game;
 
-enum	keycodes{
+/* assgin names to the integer constants 'keycodes' */
+enum	e_keycodes{
 	KEY_UP = 126,
 	KEY_W = 13,
 	KEY_DOWN = 125,
@@ -48,25 +61,25 @@ enum	keycodes{
 void	print_mapstruct(t_map *map);
 void	print_tab(char **str);
 
-/* map handlers */
+/* create map */
 void	map_init(t_map *map, int fd);
 void	set_grid(t_map *map);
 void	check_grid(t_map *map);
-void	handle_map(char *map_path, t_map *map);
+void	create_map(char *map_path, t_map *map);
 char	**dup_grid(t_map *map);
 void	check_rectangle(char **grid, t_map *map);
 void	check_wall(int i, char *row, t_map *map);
 void	check_comps(t_map *map);
 void	walk_trough_grid(char **grid, int x, int y, t_map *map);
-void 	check_path(t_map *map);
+void	check_path(t_map *map);
 
 /* render game */
-void 	initialize_game(t_game *game, t_map *map);
+void	initialize_game(t_game *game, t_map *map);
 void	xpm_to_img(t_game *game);
-void 	set_xpm_path(t_game *game);
+void	set_xpm_path(t_game *game);
 void	put_img(int i, int x_win, int y_win, t_game *game);
 void	put_img_to_map(char tile, int x_win, int y_win, t_game *game);
-void	render_map(t_game *game, t_map *map);
+void	render_game(t_game *game, t_map *map);
 
 /* handle actions*/
 int		hook_keys(int keycode, t_game *game);
@@ -74,14 +87,16 @@ void	go_up(t_game *game);
 void	go_down(t_game *game);
 void	go_right(t_game *game);
 void	go_left(t_game *game);
-int 	check_next_step(int y, int x, t_game *game);
-int 	exit_game(t_game *game);
+int		check_next_step(int y, int x, t_game *game);
+int		exit_game(t_game *game);
 
-/* functions */
+/* utils */
 void	check_fd(int fd, t_map *map);
 void	check_alloc(char **str, char *info, t_map *map);
 void	ft_exit(char *message, t_map *map);
 void	free_map(t_map *map);
-void	set_position(t_game *game);
+void	check_exit(t_map *map);
+void	check_start(t_map *map);
+int		ft_strrcmp(char *str1, char *str2, int len);
 
 #endif

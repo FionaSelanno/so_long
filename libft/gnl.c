@@ -6,12 +6,11 @@
 /*   By: fiselann <fiselann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 13:53:05 by fiselann          #+#    #+#             */
-/*   Updated: 2022/11/28 12:17:18 by fiselann         ###   ########.fr       */
+/*   Updated: 2023/01/24 10:59:58 by fiselann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 char	*get_line(char *str)
 {

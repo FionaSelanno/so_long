@@ -6,16 +6,14 @@
 /*   By: fiselann <fiselann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 11:24:10 by fiselann          #+#    #+#             */
-/*   Updated: 2022/12/13 11:24:18 by fiselann         ###   ########.fr       */
+/*   Updated: 2023/01/24 11:04:16 by fiselann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "libft.h"
 
 void	ft_putstr_fd(char *s, int fd)
 {
-
 	if (!s)
 		return ;
 	write(fd, s, ft_strlen(s));

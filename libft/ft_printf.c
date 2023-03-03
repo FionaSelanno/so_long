@@ -6,7 +6,7 @@
 /*   By: fiselann <fiselann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 12:33:10 by fiselann          #+#    #+#             */
-/*   Updated: 2022/12/13 13:36:17 by fiselann         ###   ########.fr       */
+/*   Updated: 2023/01/24 11:03:34 by fiselann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,8 @@ int	ft_parse(va_list buffer, char tag)
 
 int	ft_printf(const char *str, ...)
 {
-	int	i;
-	int 	len;
+	int		i;
+	int		len;
 	va_list	buffer;
 
 	i = 0;

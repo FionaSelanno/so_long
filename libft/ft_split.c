@@ -6,7 +6,7 @@
 /*   By: fiselann <fiselann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 13:46:42 by fiselann          #+#    #+#             */
-/*   Updated: 2022/11/22 13:46:46 by fiselann         ###   ########.fr       */
+/*   Updated: 2023/01/24 11:55:19 by fiselann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void	*ft_filltab(char **tab, char const *s, char c)
 				return (ft_freetab(tab, (j - 1)));
 		}
 	}
-	tab[j] = 0;
+	tab[j] = NULL;
 	return (tab);
 }
 

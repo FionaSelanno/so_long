@@ -1,18 +1,33 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fiselann <fiselann@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/23 16:25:24 by fiselann          #+#    #+#             */
+/*   Updated: 2023/01/24 10:57:38 by fiselann         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
 void	check_fd(int fd, t_map *map)
 {
-	(void)map;
 	if (fd < 0)
-	//free_map(map);
-	exit(0);
+	{
+		free_map(map);
+		exit(EXIT_FAILURE);
+	}
 }
 
 void	check_alloc(char **str, char *info, t_map *map)
 {
 	if (!str)
-	free_map(map);
-	ft_exit(info, map);
+	{
+		free_map(map);
+		ft_exit(info, map);
+	}
 }
 
 void	ft_exit(char *message, t_map *map)
@@ -30,27 +45,20 @@ void	free_map(t_map *map)
 		close(map->fd);
 }
 
-/****TODO: delete these functions*****/
-void	print_mapstruct(t_map *map)
+/* compare 2 strings starting from the end off the strings */
+int	ft_strrcmp(char *str1, char *str2, int len)
 {
-	printf("print map struct: ");
-	printf("fd: %d\n", map->fd);
-	print_tab(map->grid);
-	printf("exit: %d\n", map->exit);
-	printf("collects: %d\n", map->collects);
-	printf("start: %d\n", map->start);
-	printf("width: %d\n", map->width);
-	printf("height: %d\n", map->height);
-}
+	int	x;
 
-void	print_tab(char **str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
+	x = ft_strlen(str1);
+	if (x < len)
+		return (0);
+	while (len > 0)
 	{
-		printf("str[%d]: %s\n", i, str[i]);
-		i++;
+		if (str1[x - 1] != str2[len - 1])
+			return (0);
+		x--;
+		len--;
 	}
+	return (1);
 }

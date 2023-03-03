@@ -20,11 +20,12 @@ RM = 			rm -f
 #********** SOURCES ***********/
 
 
-SRCS =			map_handler.c \
-				map_checkers.c \
-				game_render.c \
+SRCS =			create_map.c \
+				check_map.c \
+				render_game.c \
 				handle_actions.c \
 				utils.c \
+				utils1.c\
 				so_long.c
 
 OBJS = 			${SRCS:.c=.o}
@@ -43,8 +44,7 @@ LIB = 			-L${LIBFT_DIR} -lft
 
 ${NAME}: 	${OBJS} 
 			make -C ${LIBFT_DIR}
-			${CC} ${OBJS} ${INCLUDE} ${LIB} -Lmlx -lmlx -framework OpenGL -framework AppKit -o ${NAME}
-
+			${CC} ${OBJS} ${INCLUDE} ${LIB} -lmlx -framework OpenGL -framework AppKit -o ${NAME}
 
 ${MLX}:
 			make -C ${MLX_DIR}
